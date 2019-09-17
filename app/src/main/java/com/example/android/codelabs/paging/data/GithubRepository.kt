@@ -46,7 +46,7 @@ class GithubRepository(
         val networkErrors = boundaryCallback.networkErrors
 
         // Get the paged list
-        val data = LivePagedListBuilder(dataSourceFactory, DATABASE_PAGE_SIZE).build()
+        val data = LivePagedListBuilder(dataSourceFactory, DATABASE_PAGE_SIZE).setBoundaryCallback(boundaryCallback).build()
 
         return RepoSearchResult(data, networkErrors)
     }
